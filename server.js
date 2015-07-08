@@ -171,7 +171,9 @@ var server = {
      *  Proxy middle for handling request and response
      */
     proxyMiddleware: function (req, res, proxy, config, next) {
-        var from = this.parseHost(req.headers.host),
+        var host_header = (typeof req.headers.host == 'undefined') ? 'ping.con' : req.headers.host;
+        console.log("REQ:" + req + '--'+ host_header + '--' + req.headers.host);
+        var from = this.parseHost(host_header),
             method = req.method,
             requestURL = req.url,
             url = method.toUpperCase() + ':' + req.url,
