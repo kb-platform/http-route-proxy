@@ -172,7 +172,6 @@ var server = {
      */
     proxyMiddleware: function (req, res, proxy, config, next) {
         var host_header = (typeof req.headers.host == 'undefined') ? 'ping.con' : req.headers.host;
-        console.log("REQ:" + req + '--'+ host_header + '--' + req.headers.host);
         var from = this.parseHost(host_header),
             method = req.method,
             requestURL = req.url,
